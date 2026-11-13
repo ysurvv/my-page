@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌊 밍디의 바닷속 세상 🐟</title>
+  <style>
+    /* Global Styles & Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      user-select: none;
+    }
+
+    body {
+      background: linear-gradient(180deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+      color: #ffffff;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      padding-bottom: 60px;
+    }
+
+    /* Ocean Background Elements (Bubbles & Fish) */
+    .ocean-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .bubble {
+      position: absolute;
+      bottom: -50px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+      animation: rise 8s infinite linear;
+    }
+
+    @keyframes rise {
+      0% {
+        transform: translateY(0) scale(0.8);
+        opacity: 0.5;
+      }
+      50% {
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-110vh) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    /* Floating Fish SVG Animations */
+    .swimming-fish {
+      position: absolute;
+      opacity: 0.7;
+      animation: swim linear infinite;
+    }
+
+    @keyframes swim {
+      0% { transform: translateX(-100px) scaleX(1); }
+      50% { transform: translateX(calc(100vw + 100px)) scaleX(1); }
+      50.1% { transform: translateX(calc(100vw + 100px)) scaleX(-1); }
+      100% { transform: translateX(-100px) scaleX(-1); }
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header Section */
+    header {
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 30px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      background: linear-gradient(135deg, #a8ff78 0%, #78ffd6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+    }
+
+    p.subtitle {
+      color: #e0f7fa;
+      font-size: 1.05rem;
+    }
+
+    /* Section Cards (Glassmorphism) */
+    .card-section {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 25px;
+      margin-bottom: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #80deea;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 10px;
+    }
+
+    /* Visitor Name Welcome Section */
+    .welcome-box {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .input-group {
+      display: flex;
+      width: 100%;
+      max-width: 400px;
+      gap: 8px;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: rgba(0, 0, 0, 0.2);
+      color: #fff;
+      font-size: 1rem;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    input[type="text"]:focus {
+      border-color: #80deea;
+      box-shadow: 0 0 10px rgba(128, 222, 234, 0.5);
+    }
+
+    input[type="text"]::placeholder {
+      color: #b0bec5;
+    }
+
+    button.btn {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #00b4db 0%, #0083b0 100%);
+      color: white;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 15px rgba(0, 180, 219, 0.3);
+      white-space: nowrap;
+    }
+
+    button.btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 180, 219, 0.5);
+    }
+
+    button.btn:active {
+      transform: translateY(0);
+    }
+
+    .welcome-message {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #ffe082;
+      min-height: 1.5em;
+      text-align: center;
+      margin-top: 5px;
+      animation: fadeIn 0.5s ease;
+    }
+
+    /* Favorite Things 3D Flip Cards */
+    .favorites-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .flip-card {
+      background-color: transparent;
+      height: 200px;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+      transform-style: preserve-3d;
+      border-radius: 16px;
+    }
+
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .flip-card-front {
+      background: linear-gradient(145deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+    }
+
+    .flip-card-front .icon {
+      font-size: 3.5rem;
+      margin-bottom: 10px;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+    }
+
+    .flip-card-front .title {
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .flip-card-front .hint {
+      font-size: 0.75rem;
+      color: #b0bec5;
+      margin-top: 8px;
+    }
+
+    .flip-card-back {
+      background: linear-gradient(145deg, #1e3c72 0%, #2a5298 100%);
+      color: white;
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-back p {
+      font-size: 0.95rem;
+      line-height: 1.4;
+      word-break: keep-all;
+    }
+
+    /* Quiz Section */
+    .quiz-container {
+      text-align: center;
+    }
+
+    .quiz-question {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .quiz-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 15px;
+    }
+
+    .quiz-btn {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: none;
+      font-size: 2rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    }
+
+    .quiz-btn-o {
+      background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+      color: #d81b60;
+    }
+
+    .quiz-btn-x {
+      background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+      color: #1565c0;
+    }
+
+    .quiz-btn:hover {
+      transform: scale(1.1);
+    }
+
+    .quiz-result {
+      font-size: 1.1rem;
+      font-weight: 700;
+      min-height: 2em;
+      margin-top: 10px;
+    }
+
+    /* Fortune Teller Section */
+    .fortune-container {
+      text-align: center;
+    }
+
+    .fortune-card-display {
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 16px;
+      padding: 20px;
+      margin-top: 15px;
+      min-height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px dashed rgba(255, 255, 255, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .fortune-text {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #80ffd3;
+      line-height: 1.4;
+      word-break: keep-all;
+    }
+
+    /* Confetti Particle Styles */
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      z-index: 999;
+      pointer-events: none;
+      animation: fall 3s ease-out forwards;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-10vh) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Shake Effect for Quiz Failure */
+    .shake {
+      animation: shakeAnim 0.5s ease-in-out;
+    }
+
+    @keyframes shakeAnim {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-10px); }
+      40%, 80% { transform: translateX(10px); }
+    }
+
+    /* Responsive Tweaks */
+    @media (max-width: 480px) {
+      h1 { font-size: 2rem; }
+      .container { padding: 12px; }
+      .card-section { padding: 18px; }
+      .favorites-grid { grid-template-columns: 1fr; }
+      .flip-card { height: 160px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ocean Background Animation -->
+  <div class="ocean-bg" id="oceanBg"></div>
+
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="badge">🐟 바닷속 아쿠아리움</div>
+      <h1>밍디의 자기소개</h1>
+      <p class="subtitle">헤엄치듯 자유롭게 살아가는 밍디의 프로필 페이지에 오신 것을 환영해요!</p>
+    </header>
+
+    <!-- 2. Favorite Things (Flip Cards) -->
+    <section class="card-section">
+      <div class="section-title">
+        <span>❤️</span> <span>밍디가 좋아하는 것 3가지</span>
+      </div>
+      <p style="font-size: 0.85rem; color: #b0bec5; margin-bottom: 15px;">카드를 클릭하면 밍디가 좋아하는 이유가 나와요!</p>
+      
+      <div class="favorites-grid">
+        <!-- Card 1: Chicken -->
+        <div class="flip-card" onclick="flipCard(this)">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="icon">🍗</div>
+              <div class="title">치킨</div>
+              <div class="hint">클릭해서 뒤집기 👆</div>
+            </div>
+            <div class="flip-card-back">
+              <p>바삭한 튀김옷과 촉촉한 속살! 바닷속에서도 생각나는 치느님은 밍디의 영혼의 짝꿍입니다 🤤</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Games -->
+        <div class="flip-card" onclick="flipCard(this)">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="icon">🎮</div>
+              <div class="title">게임</div>
+              <div class="hint">클릭해서 뒤집기 👆</div>
+            </div>
+            <div class="flip-card-back">
+              <p>화면 속 화려한 세상에서 퀘스트를 깨다 보면 시간 가는 줄 모르는 겜돌이/겜순이 밍디! 🏆</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Ramen -->
+        <div class="flip-card" onclick="flipCard(this)">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="icon">🍜</div>
+              <div class="title">라면</div>
+              <div class="hint">클릭해서 뒤집기 👆</div>
+            </div>
+            <div class="flip-card-back">
+              <p>보글보글 끓는 얼큰한 라면 국물 한 모금이면 세상의 모든 스트레스가 싹 씻겨 내려갑니다 ♨️</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. OX Quiz Section -->
+    <section class="card-section">
+      <div class="section-title">
+        <span>❓</span> <span>밍디 OX 퀴즈</span>
+      </div>
+      <div class="quiz-container" id="quizContainer">
+        <div class="quiz-question">"나는 귀엽다!"</div>
+        <div class="quiz-buttons">
+          <button class="quiz-btn quiz-btn-o" onclick="checkQuiz(true)">O</button>
+          <button class="quiz-btn quiz-btn-x" onclick="checkQuiz(false)">X</button>
+        </div>
+        <div class="quiz-result" id="quizResult"></div>
+      </div>
+    </section>
+
+    <!-- 4. Today's Fortune Section -->
+    <section class="card-section">
+      <div class="section-title">
+        <span>🔮</span> <span>오늘의 운세 뽑기</span>
+      </div>
+      <div class="fortune-container">
+        <button class="btn" style="width: 100%; max-width: 300px; font-size: 1.1rem; padding: 14px;" onclick="getFortune()">
+          🎲 운세 뽑기 버튼 누르기
+        </button>
+        <div class="fortune-card-display">
+          <div class="fortune-text" id="fortuneText">버튼을 눌러 오늘의 행운을 확인해 보세요!</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    /* -------------------------------------------------------------
+       1. Background Bubbles & Floating Fish Generation
+       ------------------------------------------------------------- */
+    const oceanBg = document.getElementById('oceanBg');
+
+    // Create random bubbles
+    for (let i = 0; i < 20; i++) {
+      const bubble = document.createElement('div');
+      bubble.classList.add('bubble');
+      const size = Math.random() * 30 + 10;
+      bubble.style.width = `${size}px`;
+      bubble.style.height = `${size}px`;
+      bubble.style.left = `${Math.random() * 100}%`;
+      bubble.style.animationDuration = `${Math.random() * 5 + 5}s`;
+      bubble.style.animationDelay = `${Math.random() * 5}s`;
+      oceanBg.appendChild(bubble);
+    }
+
+    // Create floating fish SVGs
+    const fishIcons = [
+      `<svg width="40" height="30" viewBox="0 0 100 60" fill="#80deea"><path d="M10 30 Q 50 -10 90 30 Q 50 70 10 30 Z M10 30 L -10 10 L -10 50 Z"/></svg>`,
+      `<svg width="35" height="25" viewBox="0 0 100 60" fill="#ffe082"><path d="M10 30 Q 50 -10 90 30 Q 50 70 10 30 Z M10 30 L -10 10 L -10 50 Z"/></svg>`,
+      `<svg width="50" height="35" viewBox="0 0 100 60" fill="#ff8a80"><path d="M10 30 Q 50 -10 90 30 Q 50 70 10 30 Z M10 30 L -10 10 L -10 50 Z"/></svg>`
+    ];
+
+    for (let i = 0; i < 4; i++) {
+      const fish = document.createElement('div');
+      fish.classList.add('swimming-fish');
+      fish.innerHTML = fishIcons[i % fishIcons.length];
+      fish.style.top = `${Math.random() * 80 + 10}%`;
+      fish.style.animationDuration = `${Math.random() * 10 + 12}s`;
+      fish.style.animationDelay = `${Math.random() * 8}s`;
+      oceanBg.appendChild(fish);
+    }
+
+    /* -------------------------------------------------------------
+       2. 3D Card Flip Functionality
+       ------------------------------------------------------------- */
+    function flipCard(card) {
+      card.classList.toggle('flipped');
+    }
+
+    /* -------------------------------------------------------------
+       3. OX Quiz & Celebration Effects
+       ------------------------------------------------------------- */
+    function checkQuiz(answer) {
+      const resultDiv = document.getElementById('quizResult');
+      const container = document.getElementById('quizContainer');
+
+      if (answer === true) {
+        resultDiv.style.color = '#76ff03';
+        resultDiv.innerText = '🎉 딩동댕! 정답입니다! 밍디는 역시 너무 귀여워요! 💖';
+        triggerConfetti();
+      } else {
+        resultDiv.style.color = '#ff5252';
+        resultDiv.innerText = '😭 땡! 틀렸습니다! 밍디는 귀엽단 말이에요! 다시 선택해 주세요!';
+        
+        // Shake animation for wrong answer
+        container.classList.remove('shake');
+        void container.offsetWidth; // Trigger reflow
+        container.classList.add('shake');
+      }
+    }
+
+    // Particle Confetti Effect
+    function triggerConfetti() {
+      const colors = ['#78ffd6', '#a8ff78', '#ffe082', '#ff8a80', '#80deea'];
+      for (let i = 0; i < 40; i++) {
+        const confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+        confetti.style.left = `${Math.random() * 100}vw`;
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.width = `${Math.random() * 8 + 6}px`;
+        confetti.style.height = `${Math.random() * 8 + 6}px`;
+        confetti.style.animationDuration = `${Math.random() * 2 + 1.5}s`;
+        document.body.appendChild(confetti);
+
+        // Remove after animation ends
+        setTimeout(() => confetti.remove(), 3000);
+      }
+    }
+
+    /* -------------------------------------------------------------
+       4. Today's Fortune List (10+ items)
+       ------------------------------------------------------------- */
+    const fortunes = [
+      "🍗 오늘 저녁은 치킨 각! 생각지도 못한 맛있는 음식을 먹게 됩니다.",
+      "🎮 게임에서 엄청난 연승 행진을 달릴 운세! 전설의 플레이어가 되어 보세요.",
+      "🍜 라면 물 맞추기에 완벽 성공하여 인생 최애 라면을 맛보게 됩니다.",
+      "🌊 바닷속 보물상자를 발견하듯 소소하지만 확실한 행운이 찾아옵니다!",
+      "⭐ 밍디의 귀여움 기운을 받아 오늘 만나는 모든 사람에게 호감을 얻습니다.",
+      "🍀 길을 걷다가 1,000원을 줍거나 뜻밖의 기분 좋은 소식을 듣게 됩니다.",
+      "💤 오늘은 무조건 꿀잠! 모든 피로가 싹 풀리는 기적의 휴식을 취합니다.",
+      "🎯 고르기 어려운 선택의 기로에서 찍는 것마다 대박이 나는 하루입니다.",
+      "🎁 조만간 누군가 당신에게 기분 좋은 선물이나 디저트를 건넬 거예요!",
+      "☀️ 적게 일하고 많이 버는 최상의 운이 함께합니다. 오늘 하루도 파이팅!",
+      "🐬 예쁜 분홍빛 돌고래를 만나는 꿈처럼 기분 좋은 상상이 현실이 됩니다.",
+      "✨ 오늘 당신이 짓는 미소가 주변 사람들에게 행운의 백신이 됩니다!"
+    ];
+
+    function getFortune() {
+      const fortuneText = document.getElementById('fortuneText');
+      const randomIndex = Math.floor(Math.random() * fortunes.length);
+      
+      // Animation reset
+      fortuneText.style.opacity = 0;
+      setTimeout(() => {
+        fortuneText.innerText = fortunes[randomIndex];
+        fortuneText.style.opacity = 1;
+      }, 200);
+    }
+  </script>
+</body>
+</html>
