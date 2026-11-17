@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
-<head>
+<html lang="ko"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>🌊 밍디의 바닷속 세상 🐟</title>
@@ -408,8 +407,109 @@
       .flip-card { height: 160px; }
     }
   </style>
-</head>
+<style data-studio="css">
+:root{--st-accent:#e2557a}
+.st-nav{position:sticky;top:0;z-index:50;width:100%;box-sizing:border-box;background:#fff;background:rgba(255,255,255,.93);backdrop-filter:blur(6px);border-bottom:1px solid rgba(0,0,0,.08)}
+.st-nav-in{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;padding:10px 12px;max-width:960px;margin:0 auto}
+.st-nav-a{display:inline-block;padding:8px 14px;border-radius:999px;text-decoration:none;color:#333;font-weight:700;font-size:15px;line-height:1.2}
+.st-nav-a:hover{background:rgba(0,0,0,.06)}
+.st-nav-a.is-on{background:var(--st-accent);color:#fff}
+.st-sec{box-sizing:border-box;width:100%;max-width:960px;margin:24px auto;padding:20px}
+.st-h{font-size:1.6rem;font-weight:800;line-height:1.3;margin:0 0 12px}
+.st-p{font-size:1rem;line-height:1.75;margin:0 0 12px}
+.st-btn{display:inline-block;padding:12px 22px;border-radius:12px;background:var(--st-accent);color:#fff!important;text-decoration:none;font-weight:700;font-size:1rem;line-height:1.2;border:0;cursor:pointer;margin:4px}
+.st-btn:hover{filter:brightness(1.08)}
+.st-img{margin:16px auto;text-align:center}
+.st-img img{display:inline-block;width:100%;max-width:100%;height:auto;border-radius:12px}
+.st-hero{text-align:center;padding:48px 20px;border-radius:20px;background:#f6f6f6;background:color-mix(in srgb,var(--st-accent) 12%,#fff)}
+.st-hero .st-h{font-size:2rem}
+.st-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+.st-card{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:18px;box-shadow:0 2px 10px rgba(0,0,0,.05);text-align:left}
+.st-ico{font-size:2rem;line-height:1;margin:0 0 8px}
+.st-card .st-h{font-size:1.15rem;margin:0 0 6px}
+.st-card .st-p{margin:0;font-size:.95rem}
+.st-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:20px;align-items:center}
+@media(max-width:600px){.st-split{grid-template-columns:1fr}}
+.st-split img{display:block;width:100%;height:auto;border-radius:16px}
+.st-list{margin:0;padding-left:1.3em;line-height:1.9}
+.st-hr{border:0;border-top:2px dashed rgba(0,0,0,.15);margin:28px auto;max-width:960px}
+.st-foot{text-align:center;font-size:.875rem;opacity:.7;padding:24px 12px}
+.st-tab-bar{display:flex;gap:4px;flex-wrap:wrap;border-bottom:2px solid rgba(0,0,0,.08);margin-bottom:14px}
+.st-tab{border:0;background:none;padding:10px 14px;font:inherit;font-weight:700;color:inherit;opacity:.6;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px}
+.st-tab.is-on{opacity:1;color:var(--st-accent);border-bottom-color:var(--st-accent)}
+.st-acc{border:1px solid rgba(0,0,0,.1);border-radius:12px;margin:8px 0;background:#fff;overflow:hidden;text-align:left}
+.st-acc summary{cursor:pointer;padding:14px 44px 14px 16px;font-weight:700;list-style:none;position:relative}
+.st-acc summary::-webkit-details-marker{display:none}
+.st-acc summary::after{content:"+";position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:1.3em;color:var(--st-accent)}
+.st-acc[open] summary::after{content:"\2212"}
+.st-acc>.st-p{padding:0 16px 14px;margin:0}
+.st-pop{margin:12px 0;text-align:center}
+.st-modal{border:0;border-radius:18px;padding:24px;width:min(480px,90vw);box-shadow:0 20px 60px rgba(0,0,0,.3);text-align:left;color:#222}
+.st-modal::backdrop{background:rgba(0,0,0,.45)}
+.st-slider{position:relative}
+.st-slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:16px}
+.st-slides::-webkit-scrollbar{display:none}
+.st-slide{flex:0 0 100%;scroll-snap-align:start;margin:0}
+.st-slide img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;border-radius:16px}
+.st-slide figcaption{text-align:center;padding:8px;font-size:.95rem}
+.st-prev,.st-next{position:absolute;top:calc(50% - 40px);width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.92);box-shadow:0 2px 8px rgba(0,0,0,.2);font-size:24px;line-height:1;cursor:pointer;color:#333}
+.st-prev{left:10px}.st-next{right:10px}
+.st-dots{display:flex;justify-content:center;gap:8px;margin-top:4px}
+.st-dots button{width:10px;height:10px;border-radius:50%;border:0;background:rgba(0,0,0,.2);padding:0;cursor:pointer}
+.st-dots button.is-on{background:var(--st-accent)}
+.st-quiz{text-align:center}
+.st-q{font-size:1.25rem;font-weight:800;margin:0 0 14px}
+.st-opts{display:grid;gap:8px;max-width:420px;margin:0 auto}
+.st-opt{padding:12px 16px;border-radius:12px;border:2px solid rgba(0,0,0,.12);background:#fff;font:inherit;font-weight:700;cursor:pointer;color:#222}
+.st-opt.is-ok{border-color:#2f9e5b;background:#e9f7ef}.st-opt.is-no{border-color:#d9475a;background:#fdecee}
+.st-qr{min-height:1.6em;font-weight:700;margin:12px 0 0}
+.st-ci{display:flex;gap:10px;align-items:center;padding:10px 12px;border:1px solid rgba(0,0,0,.08);border-radius:10px;margin:6px 0;background:#fff;cursor:pointer;text-align:left;color:#222}
+.st-ci input{width:20px;height:20px;flex:none;accent-color:var(--st-accent)}
+.st-bar{height:10px;border-radius:99px;background:rgba(0,0,0,.08);overflow:hidden;margin-top:12px}
+.st-bar i{display:block;height:100%;width:0;background:var(--st-accent);transition:width .3s}
+.st-cnt{font-size:.9rem;opacity:.75;margin:6px 0 0}
+.st-dday,.st-timer{text-align:center;border-radius:20px;background:#f6f6f6;background:color-mix(in srgb,var(--st-accent) 10%,#fff)}
+.st-dlabel,.st-tlabel{margin:0;font-weight:700;opacity:.8}
+.st-dnum,.st-tnum{margin:4px 0 8px;font-size:3rem;font-weight:900;color:var(--st-accent);font-variant-numeric:tabular-nums;line-height:1.2}
+.st-tnum.is-done{animation:stblink 1s 3}@keyframes stblink{50%{opacity:.2}}
+.st-embed iframe{display:block;width:100%;aspect-ratio:16/9;height:auto;border:0;border-radius:14px}
+.st-embed[data-kind=map] iframe{aspect-ratio:4/3}
+.st-cols{display:grid;gap:16px}
+.st-c2{grid-template-columns:repeat(2,minmax(0,1fr))}.st-c3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:600px){.st-c2,.st-c3{grid-template-columns:1fr}}
+.st-col{min-width:0}
+.st-swipe{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 4px 14px;-webkit-overflow-scrolling:touch}
+.st-swipe>*{flex:0 0 min(72%,240px);box-sizing:border-box;scroll-snap-align:start}
+.st-nav-i{margin-right:5px}
+@media(max-width:600px){.st-nav-tab{position:fixed;top:auto;bottom:0;left:0;border-bottom:0;border-top:1px solid rgba(0,0,0,.1);padding-bottom:env(safe-area-inset-bottom)}.st-nav-tab .st-nav-in{flex-wrap:nowrap;justify-content:space-around;gap:0;padding:4px}.st-nav-tab .st-nav-a{flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 2px;font-size:12px;border-radius:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.st-nav-tab .st-nav-a.is-on{background:none;color:var(--st-accent)}.st-nav-tab .st-nav-i{margin:0;font-size:22px;line-height:1.1}}
+.st-g-point{--st-g:linear-gradient(135deg,rgba(255,255,255,0),rgba(255,255,255,.45)),linear-gradient(var(--st-accent),var(--st-accent));--st-gi:#fff}.st-g-sunset{--st-g:linear-gradient(135deg,#f43f5e,#f97316);--st-gi:#fff}.st-g-ocean{--st-g:linear-gradient(135deg,#2563eb,#06b6d4);--st-gi:#fff}.st-g-grape{--st-g:linear-gradient(135deg,#7c3aed,#ec4899);--st-gi:#fff}.st-g-forest{--st-g:linear-gradient(135deg,#047857,#34d399);--st-gi:#fff}.st-g-night{--st-g:linear-gradient(135deg,#0f172a,#475569);--st-gi:#fff}.st-g-peach{--st-g:linear-gradient(135deg,#ffe4e6,#fef3c7);--st-gi:#222}.st-g-mint{--st-g:linear-gradient(135deg,#d1fae5,#dbeafe);--st-gi:#222}.st-g-lav{--st-g:linear-gradient(135deg,#ede9fe,#fce7f3);--st-gi:#222}
+html body [class*="st-g-"]{background-image:var(--st-g);color:var(--st-gi)}
+html body .st-gtx{color:transparent;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.st-hv-lift,.st-hv-grow,.st-hv-glow,.st-hv-press{transition:translate .2s,scale .2s,box-shadow .2s}
+@media(hover:hover){.st-hv-lift:hover{translate:0 -6px;box-shadow:0 14px 28px rgba(0,0,0,.18)}.st-hv-grow:hover{scale:1.04}.st-hv-glow:hover{box-shadow:0 8px 24px rgba(0,0,0,.25);box-shadow:0 0 0 3px color-mix(in srgb,var(--st-accent) 35%,transparent),0 8px 24px color-mix(in srgb,var(--st-accent) 45%,transparent)}}
+.st-hv-press:active{scale:.95}
+html.st-js [data-st-in]{opacity:0;transition:opacity .6s ease,transform .6s ease,translate .2s,scale .2s,box-shadow .2s}
+html.st-js [data-st-in="up"]{transform:translateY(26px)}html.st-js [data-st-in="zoom"]{transform:scale(.9)}html.st-js [data-st-in="left"]{transform:translateX(-30px)}
+html.st-js [data-st-in].is-in{opacity:1;transform:none}
+html.st-editing [data-st-in]{opacity:1!important;transform:none!important}
+.st-editing .st-swipe{flex-wrap:wrap;overflow:visible}
+html.st-dark{filter:invert(1) hue-rotate(180deg);background:#fff}
+html.st-dark img,html.st-dark video,html.st-dark iframe,html.st-dark canvas{filter:invert(1) hue-rotate(180deg)}
+.st-editing .st-tab-panel{display:block!important;outline:2px dashed rgba(0,0,0,.18);outline-offset:4px;margin:12px 0}
+.st-editing .st-slides{flex-wrap:wrap;gap:10px;overflow:visible}
+.st-editing .st-prev,.st-editing .st-next{display:none}
+.st-editing dialog.st-modal{display:block;position:static;margin:12px auto;outline:2px dashed rgba(0,0,0,.25)}
+.st-editing .st-embed iframe{pointer-events:none}
+</style></head>
 <body>
+<nav class="st-nav" data-studio="nav">
+  <div class="st-nav-in">
+    <a class="st-nav-a is-on" href="index.html">홈</a>
+    <a class="st-nav-a" href="dream.html">꿈</a>
+    <a class="st-nav-a" href="about.html">소개</a>
+  </div>
+</nav>
+
 
   <!-- Ocean Background Animation -->
   <div class="ocean-bg" id="oceanBg"></div>
@@ -490,139 +590,9 @@
     </section>
 
     <!-- 4. Today's Fortune Section -->
-    <section class="card-section">
-      <div class="section-title">
-        <span>🔮</span> <span>오늘의 운세 뽑기</span>
-      </div>
-      <div class="fortune-container">
-        <button class="btn" style="width: 100%; max-width: 300px; font-size: 1.1rem; padding: 14px;" onclick="getFortune()">
-          🎲 운세 뽑기 버튼 누르기
-        </button>
-        <div class="fortune-card-display">
-          <div class="fortune-text" id="fortuneText">버튼을 눌러 오늘의 행운을 확인해 보세요!</div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <script>
-    /* -------------------------------------------------------------
-       1. Background Bubbles & Floating Fish Generation
-       ------------------------------------------------------------- */
-    const oceanBg = document.getElementById('oceanBg');
-
-    // Create random bubbles
-    for (let i = 0; i < 20; i++) {
-      const bubble = document.createElement('div');
-      bubble.classList.add('bubble');
-      const size = Math.random() * 30 + 10;
-      bubble.style.width = `${size}px`;
-      bubble.style.height = `${size}px`;
-      bubble.style.left = `${Math.random() * 100}%`;
-      bubble.style.animationDuration = `${Math.random() * 5 + 5}s`;
-      bubble.style.animationDelay = `${Math.random() * 5}s`;
-      oceanBg.appendChild(bubble);
-    }
-
-    // Create floating fish SVGs
-    const fishIcons = [
-      `<svg width="40" height="30" viewBox="0 0 100 60" fill="#80deea"><path d="M10 30 Q 50 -10 90 30 Q 50 70 10 30 Z M10 30 L -10 10 L -10 50 Z"/></svg>`,
-      `<svg width="35" height="25" viewBox="0 0 100 60" fill="#ffe082"><path d="M10 30 Q 50 -10 90 30 Q 50 70 10 30 Z M10 30 L -10 10 L -10 50 Z"/></svg>`,
-      `<svg width="50" height="35" viewBox="0 0 100 60" fill="#ff8a80"><path d="M10 30 Q 50 -10 90 30 Q 50 70 10 30 Z M10 30 L -10 10 L -10 50 Z"/></svg>`
-    ];
-
-    for (let i = 0; i < 4; i++) {
-      const fish = document.createElement('div');
-      fish.classList.add('swimming-fish');
-      fish.innerHTML = fishIcons[i % fishIcons.length];
-      fish.style.top = `${Math.random() * 80 + 10}%`;
-      fish.style.animationDuration = `${Math.random() * 10 + 12}s`;
-      fish.style.animationDelay = `${Math.random() * 8}s`;
-      oceanBg.appendChild(fish);
-    }
-
-    /* -------------------------------------------------------------
-       2. 3D Card Flip Functionality
-       ------------------------------------------------------------- */
-    function flipCard(card) {
-      card.classList.toggle('flipped');
-    }
-
-    /* -------------------------------------------------------------
-       3. OX Quiz & Celebration Effects
-       ------------------------------------------------------------- */
-    function checkQuiz(answer) {
-      const resultDiv = document.getElementById('quizResult');
-      const container = document.getElementById('quizContainer');
-
-      if (answer === true) {
-        resultDiv.style.color = '#76ff03';
-        resultDiv.innerText = '🎉 딩동댕! 정답입니다! 밍디는 역시 너무 귀여워요! 💖';
-        triggerConfetti();
-      } else {
-        resultDiv.style.color = '#ff5252';
-        resultDiv.innerText = '😭 땡! 틀렸습니다! 밍디는 귀엽단 말이에요! 다시 선택해 주세요!';
-        
-        // Shake animation for wrong answer
-        container.classList.remove('shake');
-        void container.offsetWidth; // Trigger reflow
-        container.classList.add('shake');
-      }
-    }
-
-    // Particle Confetti Effect
-    function triggerConfetti() {
-      const colors = ['#78ffd6', '#a8ff78', '#ffe082', '#ff8a80', '#80deea'];
-      for (let i = 0; i < 40; i++) {
-        const confetti = document.createElement('div');
-        confetti.classList.add('confetti');
-        confetti.style.left = `${Math.random() * 100}vw`;
-        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-        confetti.style.width = `${Math.random() * 8 + 6}px`;
-        confetti.style.height = `${Math.random() * 8 + 6}px`;
-        confetti.style.animationDuration = `${Math.random() * 2 + 1.5}s`;
-        document.body.appendChild(confetti);
-
-        // Remove after animation ends
-        setTimeout(() => confetti.remove(), 3000);
-      }
-    }
-
-    /* -------------------------------------------------------------
-       4. Today's Fortune List (10+ items)
-       ------------------------------------------------------------- */
-    const fortunes = [
-      "🍗 오늘 저녁은 치킨 각! 생각지도 못한 맛있는 음식을 먹게 됩니다.",
-      "🎮 게임에서 엄청난 연승 행진을 달릴 운세! 전설의 플레이어가 되어 보세요.",
-      "🍜 라면 물 맞추기에 완벽 성공하여 인생 최애 라면을 맛보게 됩니다.",
-      "🌊 바닷속 보물상자를 발견하듯 소소하지만 확실한 행운이 찾아옵니다!",
-      "⭐ 밍디의 귀여움 기운을 받아 오늘 만나는 모든 사람에게 호감을 얻습니다.",
-      "🍀 길을 걷다가 1,000원을 줍거나 뜻밖의 기분 좋은 소식을 듣게 됩니다.",
-      "💤 오늘은 무조건 꿀잠! 모든 피로가 싹 풀리는 기적의 휴식을 취합니다.",
-      "🎯 고르기 어려운 선택의 기로에서 찍는 것마다 대박이 나는 하루입니다.",
-      "🎁 조만간 누군가 당신에게 기분 좋은 선물이나 디저트를 건넬 거예요!",
-      "☀️ 적게 일하고 많이 버는 최상의 운이 함께합니다. 오늘 하루도 파이팅!",
-      "🐬 예쁜 분홍빛 돌고래를 만나는 꿈처럼 기분 좋은 상상이 현실이 됩니다.",
-      "✨ 오늘 당신이 짓는 미소가 주변 사람들에게 행운의 백신이 됩니다!"
-    ];
-
-    function getFortune() {
-      const fortuneText = document.getElementById('fortuneText');
-      const randomIndex = Math.floor(Math.random() * fortunes.length);
-      
-      // Animation reset
-      fortuneText.style.opacity = 0;
-      setTimeout(() => {
-        fortuneText.innerText = fortunes[randomIndex];
-        fortuneText.style.opacity = 1;
-      }, 200);
-    }
-  </script>
-<!-- ▼ 방명록·OX 투표 (4차시) ▼ -->
-<sb-widget id="sb-web" style="display:block;width:100%;max-width:640px;margin:32px auto;flex:1 1 100%;grid-column:1/-1;align-self:stretch;box-sizing:border-box"></sb-widget>
-<script>
+    <!-- ▼ 방명록·OX 투표 (4차시) ▼ --><sb-widget id="sb-web" style="display:block;width:100%;max-width:640px;margin:32px auto;flex:1 1 100%;grid-column:1/-1;align-self:stretch;box-sizing:border-box"></sb-widget><script>
 (function () {
-  var C = {"id":"sb-web","url":"https://script.google.com/macros/s/AKfycbwxf-MGHIuAkkXVY8Ry8UohhedQoLD7vvJA9rRFTe6aJPBEeviOMZw-Arz1fbw72dN8XA/exec","q":"나는 귀엽다","title":"방명록","sel":"body > div:nth-child(2) > section:nth-child(4)","pos":"before"};
+  var C = {"id":"sb-web","url":"https://script.google.com/macros/s/AKfycbwxf-MGHIuAkkXVY8Ry8UohhedQoLD7vvJA9rRFTe6aJPBEeviOMZw-Arz1fbw72dN8XA/exec","q":"나는 귀엽다","title":"방명록","sel":"","pos":"before"};
   var host = document.getElementById(C.id);
   if (!host || host.sbReady) return;
   host.sbReady = true;
@@ -940,7 +910,132 @@
   }
 })();
 
-</script>
-<!-- ▲ 방명록·OX 투표 끝 ▲ -->
-</body>
-</html>
+</script><!-- ▲ 방명록·OX 투표 끝 ▲ --><section class="card-section">
+      <div class="section-title">
+        <span>🔮</span> <span>오늘의 운세 뽑기</span>
+      </div>
+      <div class="fortune-container">
+        <button class="btn" style="width: 100%; max-width: 300px; font-size: 1.1rem; padding: 14px;" onclick="getFortune()">
+          🎲 운세 뽑기 버튼 누르기
+        </button>
+        <div class="fortune-card-display">
+          <div class="fortune-text" id="fortuneText">버튼을 눌러 오늘의 행운을 확인해 보세요!</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    /* -------------------------------------------------------------
+       1. Background Bubbles & Floating Fish Generation
+       ------------------------------------------------------------- */
+    const oceanBg = document.getElementById('oceanBg');
+
+    // Create random bubbles
+    for (let i = 0; i < 20; i++) {
+      const bubble = document.createElement('div');
+      bubble.classList.add('bubble');
+      const size = Math.random() * 30 + 10;
+      bubble.style.width = `${size}px`;
+      bubble.style.height = `${size}px`;
+      bubble.style.left = `${Math.random() * 100}%`;
+      bubble.style.animationDuration = `${Math.random() * 5 + 5}s`;
+      bubble.style.animationDelay = `${Math.random() * 5}s`;
+      oceanBg.appendChild(bubble);
+    }
+
+    // Create floating fish SVGs
+    const fishIcons = [
+      `<svg width="40" height="30" viewBox="0 0 100 60" fill="#80deea"><path d="M10 30 Q 50 -10 90 30 Q 50 70 10 30 Z M10 30 L -10 10 L -10 50 Z"/></svg>`,
+      `<svg width="35" height="25" viewBox="0 0 100 60" fill="#ffe082"><path d="M10 30 Q 50 -10 90 30 Q 50 70 10 30 Z M10 30 L -10 10 L -10 50 Z"/></svg>`,
+      `<svg width="50" height="35" viewBox="0 0 100 60" fill="#ff8a80"><path d="M10 30 Q 50 -10 90 30 Q 50 70 10 30 Z M10 30 L -10 10 L -10 50 Z"/></svg>`
+    ];
+
+    for (let i = 0; i < 4; i++) {
+      const fish = document.createElement('div');
+      fish.classList.add('swimming-fish');
+      fish.innerHTML = fishIcons[i % fishIcons.length];
+      fish.style.top = `${Math.random() * 80 + 10}%`;
+      fish.style.animationDuration = `${Math.random() * 10 + 12}s`;
+      fish.style.animationDelay = `${Math.random() * 8}s`;
+      oceanBg.appendChild(fish);
+    }
+
+    /* -------------------------------------------------------------
+       2. 3D Card Flip Functionality
+       ------------------------------------------------------------- */
+    function flipCard(card) {
+      card.classList.toggle('flipped');
+    }
+
+    /* -------------------------------------------------------------
+       3. OX Quiz & Celebration Effects
+       ------------------------------------------------------------- */
+    function checkQuiz(answer) {
+      const resultDiv = document.getElementById('quizResult');
+      const container = document.getElementById('quizContainer');
+
+      if (answer === true) {
+        resultDiv.style.color = '#76ff03';
+        resultDiv.innerText = '🎉 딩동댕! 정답입니다! 밍디는 역시 너무 귀여워요! 💖';
+        triggerConfetti();
+      } else {
+        resultDiv.style.color = '#ff5252';
+        resultDiv.innerText = '😭 땡! 틀렸습니다! 밍디는 귀엽단 말이에요! 다시 선택해 주세요!';
+        
+        // Shake animation for wrong answer
+        container.classList.remove('shake');
+        void container.offsetWidth; // Trigger reflow
+        container.classList.add('shake');
+      }
+    }
+
+    // Particle Confetti Effect
+    function triggerConfetti() {
+      const colors = ['#78ffd6', '#a8ff78', '#ffe082', '#ff8a80', '#80deea'];
+      for (let i = 0; i < 40; i++) {
+        const confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+        confetti.style.left = `${Math.random() * 100}vw`;
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.width = `${Math.random() * 8 + 6}px`;
+        confetti.style.height = `${Math.random() * 8 + 6}px`;
+        confetti.style.animationDuration = `${Math.random() * 2 + 1.5}s`;
+        document.body.appendChild(confetti);
+
+        // Remove after animation ends
+        setTimeout(() => confetti.remove(), 3000);
+      }
+    }
+
+    /* -------------------------------------------------------------
+       4. Today's Fortune List (10+ items)
+       ------------------------------------------------------------- */
+    const fortunes = [
+      "🍗 오늘 저녁은 치킨 각! 생각지도 못한 맛있는 음식을 먹게 됩니다.",
+      "🎮 게임에서 엄청난 연승 행진을 달릴 운세! 전설의 플레이어가 되어 보세요.",
+      "🍜 라면 물 맞추기에 완벽 성공하여 인생 최애 라면을 맛보게 됩니다.",
+      "🌊 바닷속 보물상자를 발견하듯 소소하지만 확실한 행운이 찾아옵니다!",
+      "⭐ 밍디의 귀여움 기운을 받아 오늘 만나는 모든 사람에게 호감을 얻습니다.",
+      "🍀 길을 걷다가 1,000원을 줍거나 뜻밖의 기분 좋은 소식을 듣게 됩니다.",
+      "💤 오늘은 무조건 꿀잠! 모든 피로가 싹 풀리는 기적의 휴식을 취합니다.",
+      "🎯 고르기 어려운 선택의 기로에서 찍는 것마다 대박이 나는 하루입니다.",
+      "🎁 조만간 누군가 당신에게 기분 좋은 선물이나 디저트를 건넬 거예요!",
+      "☀️ 적게 일하고 많이 버는 최상의 운이 함께합니다. 오늘 하루도 파이팅!",
+      "🐬 예쁜 분홍빛 돌고래를 만나는 꿈처럼 기분 좋은 상상이 현실이 됩니다.",
+      "✨ 오늘 당신이 짓는 미소가 주변 사람들에게 행운의 백신이 됩니다!"
+    ];
+
+    function getFortune() {
+      const fortuneText = document.getElementById('fortuneText');
+      const randomIndex = Math.floor(Math.random() * fortunes.length);
+      
+      // Animation reset
+      fortuneText.style.opacity = 0;
+      setTimeout(() => {
+        fortuneText.innerText = fortunes[randomIndex];
+        fortuneText.style.opacity = 1;
+      }, 200);
+    }
+  </script>
+</body></html>
