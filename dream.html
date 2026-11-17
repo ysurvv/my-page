@@ -478,6 +478,21 @@
 .st-c2{grid-template-columns:repeat(2,minmax(0,1fr))}.st-c3{grid-template-columns:repeat(3,minmax(0,1fr))}
 @media(max-width:600px){.st-c2,.st-c3{grid-template-columns:1fr}}
 .st-col{min-width:0}
+.st-swipe{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 4px 14px;-webkit-overflow-scrolling:touch}
+.st-swipe>*{flex:0 0 min(72%,240px);box-sizing:border-box;scroll-snap-align:start}
+.st-nav-i{margin-right:5px}
+@media(max-width:600px){.st-nav-tab{position:fixed;top:auto;bottom:0;left:0;border-bottom:0;border-top:1px solid rgba(0,0,0,.1);padding-bottom:env(safe-area-inset-bottom)}.st-nav-tab .st-nav-in{flex-wrap:nowrap;justify-content:space-around;gap:0;padding:4px}.st-nav-tab .st-nav-a{flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 2px;font-size:12px;border-radius:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.st-nav-tab .st-nav-a.is-on{background:none;color:var(--st-accent)}.st-nav-tab .st-nav-i{margin:0;font-size:22px;line-height:1.1}}
+.st-g-point{--st-g:linear-gradient(135deg,rgba(255,255,255,0),rgba(255,255,255,.45)),linear-gradient(var(--st-accent),var(--st-accent));--st-gi:#fff}.st-g-sunset{--st-g:linear-gradient(135deg,#f43f5e,#f97316);--st-gi:#fff}.st-g-ocean{--st-g:linear-gradient(135deg,#2563eb,#06b6d4);--st-gi:#fff}.st-g-grape{--st-g:linear-gradient(135deg,#7c3aed,#ec4899);--st-gi:#fff}.st-g-forest{--st-g:linear-gradient(135deg,#047857,#34d399);--st-gi:#fff}.st-g-night{--st-g:linear-gradient(135deg,#0f172a,#475569);--st-gi:#fff}.st-g-peach{--st-g:linear-gradient(135deg,#ffe4e6,#fef3c7);--st-gi:#222}.st-g-mint{--st-g:linear-gradient(135deg,#d1fae5,#dbeafe);--st-gi:#222}.st-g-lav{--st-g:linear-gradient(135deg,#ede9fe,#fce7f3);--st-gi:#222}
+html body [class*="st-g-"]{background-image:var(--st-g);color:var(--st-gi)}
+html body .st-gtx{color:transparent;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.st-hv-lift,.st-hv-grow,.st-hv-glow,.st-hv-press{transition:translate .2s,scale .2s,box-shadow .2s}
+@media(hover:hover){.st-hv-lift:hover{translate:0 -6px;box-shadow:0 14px 28px rgba(0,0,0,.18)}.st-hv-grow:hover{scale:1.04}.st-hv-glow:hover{box-shadow:0 8px 24px rgba(0,0,0,.25);box-shadow:0 0 0 3px color-mix(in srgb,var(--st-accent) 35%,transparent),0 8px 24px color-mix(in srgb,var(--st-accent) 45%,transparent)}}
+.st-hv-press:active{scale:.95}
+html.st-js [data-st-in]{opacity:0;transition:opacity .6s ease,transform .6s ease,translate .2s,scale .2s,box-shadow .2s}
+html.st-js [data-st-in="up"]{transform:translateY(26px)}html.st-js [data-st-in="zoom"]{transform:scale(.9)}html.st-js [data-st-in="left"]{transform:translateX(-30px)}
+html.st-js [data-st-in].is-in{opacity:1;transform:none}
+html.st-editing [data-st-in]{opacity:1!important;transform:none!important}
+.st-editing .st-swipe{flex-wrap:wrap;overflow:visible}
 html.st-dark{filter:invert(1) hue-rotate(180deg);background:#fff}
 html.st-dark img,html.st-dark video,html.st-dark iframe,html.st-dark canvas{filter:invert(1) hue-rotate(180deg)}
 .st-editing .st-tab-panel{display:block!important;outline:2px dashed rgba(0,0,0,.18);outline-offset:4px;margin:12px 0}
@@ -490,8 +505,8 @@ html.st-dark img,html.st-dark video,html.st-dark iframe,html.st-dark canvas{filt
 <nav class="st-nav" data-studio="nav">
   <div class="st-nav-in">
     <a class="st-nav-a" href="index.html">홈</a>
-    <a class="st-nav-a" href="about.html">소개</a>
     <a class="st-nav-a is-on" href="dream.html">꿈</a>
+    <a class="st-nav-a" href="about.html">소개</a>
   </div>
 </nav>
 
